@@ -56,7 +56,7 @@ namespace Presentation.controllers
             var result = await _services.GetTripsByPriceRangeAsync(minPrice, maxPrice);
             return Ok(result);
         }
-      
+          
         //7- Add Trip
         [HttpPost]
         public async Task<ActionResult<int>> AddTripAsync([FromBody] TripsDto trip)
