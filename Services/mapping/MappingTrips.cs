@@ -18,11 +18,16 @@ namespace Services.mapping
             CreateMap<Trips,TripsDto>()
                   .ForMember(dest => dest.Location, opt => opt.MapFrom(src => src.Location.ToString()))
                     .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status.ToString()))
+                    //.ForMember(dest => dest.Images, option => option.MapFrom(src => $"https://localhost:7026///{src.Images}"));
                     .ForMember(dest=>dest.Images,opt=>opt.MapFrom<pictureUrlResolver>());
 
             CreateMap<TripsDto, Trips>()
                 .ForMember(dest => dest.Location, opt => opt.MapFrom(src => Enum.Parse<Locations>(src.Location)))
                 .ForMember(dest => dest.Status, opt => opt.MapFrom(src => Enum.Parse<Status>(src.Status!)));
+
+            //-------------------
+            CreateMap<Reviews, ReviewDto>().ReverseMap();
+                
         }
 
         public class pictureUrlResolver(IConfiguration _config) : IValueResolver<Trips, TripsDto,List<string>>

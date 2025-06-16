@@ -28,6 +28,8 @@ namespace Api_Site
             builder.Services.AddAutoMapper(typeof(MappingTrips).Assembly);
             builder.Services.AddScoped<ITripeRepository, TripRepository>();
             builder.Services.AddScoped<ITripServices, TripServices>();
+            builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
+            builder.Services.AddScoped<IReviewServices, ReviewServices>();
             var app = builder.Build();
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
@@ -39,6 +41,7 @@ namespace Api_Site
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
+            app.UseStaticFiles();
 
 
             app.MapControllers();

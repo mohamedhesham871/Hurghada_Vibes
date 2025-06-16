@@ -37,14 +37,14 @@ namespace Presentation.controllers
         }
         //4- Get By Location
         [HttpGet("Location")]
-        public async Task<ActionResult<TripsDto>> GetByLocation( string Location)
+        public async Task<ActionResult<TripsDto>> GetByLocation([FromQuery] string Location)
         {
             var result =await _services.GetTripsByLocationAsync(Location);
             return Ok(result);
         }
         //5- Get By Status
         [HttpGet("Status")]
-        public async Task<ActionResult<TripsDto>> GetByStatus( string status)
+        public async Task<ActionResult<TripsDto>> GetByStatus([FromQuery] string status)
         {
             var result = await _services.GetTripsByStatusAsync(status);
             return Ok(result);
@@ -56,7 +56,6 @@ namespace Presentation.controllers
             var result = await _services.GetTripsByPriceRangeAsync(minPrice, maxPrice);
             return Ok(result);
         }
-          
         //7- Add Trip
         [HttpPost]
         public async Task<ActionResult<int>> AddTripAsync([FromBody] TripsDto trip)

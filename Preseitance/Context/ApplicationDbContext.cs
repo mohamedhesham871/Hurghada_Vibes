@@ -16,5 +16,6 @@ namespace Persistence.Context
 
         }
         public DbSet<Trips> Trips { get; set; } = null!; // Assuming Trips is a model class representing a trip entity
+        public DbSet<Reviews> Reviews { get; set; } = null!; // Assuming Reviews is a model class representing a review entity
     }
 }
