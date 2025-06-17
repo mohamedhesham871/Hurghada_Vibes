@@ -82,7 +82,7 @@ namespace Persistence.Repository
             {
                 throw new ArgumentException("Location cannot be 'none'.", nameof(location));
             }
-            return result;
+            return result!;
         }
         //Get Trips By Status
         public async Task<IEnumerable<Trips>> GetTripsByStatusAsync(Status status)

@@ -26,7 +26,7 @@ namespace Domain.Models
         public List<string> Images { get; set; } = new List<string>();
         public List<string> Tags { get; set; } = new List<string>();
         public Status? Status { get; set; } // Active, Inactive, SoldOut, Upcoming
-        public List<Reviews> Reviews { get; set; } = new List<Reviews>(); // List of reviews for the trip
+        public List<Review> Reviews { get; set; } = new List<Review>(); // List of reviews for the trip
 
     }
 }

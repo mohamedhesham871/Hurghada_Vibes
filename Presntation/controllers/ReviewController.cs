@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using ServicesAbstractions;
 using Shared;
 using System;
@@ -11,7 +12,8 @@ namespace Presentation.controllers
 {
     public class ReviewController(IReviewServices services):ControllerBase
     {
-        [HttpGet("GetAllReviewsOfTrip/{Tripid}")]
+        [HttpGet("Reviews")]
+
         public async Task<IActionResult> GetAllReviewsOfTripAsync([FromQuery]int Tripid)
         {
             try
@@ -34,14 +36,14 @@ namespace Presentation.controllers
                     return BadRequest("Review cannot be null.");
                 }
                 var result = await services.AddReviewAsync(review);
-                return CreatedAtAction(nameof(GetAllReviewsOfTripAsync), new { Tripid = review.TripId }, result);
+                return Ok(result);
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
         }
-        [HttpPut("UpdateReview/{id}")]
+        [HttpPut("UpdateReview")]
         public async Task<IActionResult> UpdateReviewAsync([FromBody] ReviewDto review,[FromQuery] int id)
         {
             try
@@ -58,7 +60,7 @@ namespace Presentation.controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpDelete("DeleteReview/{id}")]
+        [HttpDelete("DeleteReview")]
         public IActionResult DeleteReviewAsync([FromQuery] int id)
         {
             try

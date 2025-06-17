@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Persistence.Data.Configuration
 {
-    public class ReviewsConfigurations : IEntityTypeConfiguration<Reviews>
+    public class ReviewsConfigurations : IEntityTypeConfiguration<Review>
     {
-        public void Configure(EntityTypeBuilder<Reviews> builder)
+        public void Configure(EntityTypeBuilder<Review> builder)
         {
            builder.HasKey(r=>r.Id);
 

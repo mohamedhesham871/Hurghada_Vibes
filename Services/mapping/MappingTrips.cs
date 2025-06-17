@@ -26,7 +26,7 @@ namespace Services.mapping
                 .ForMember(dest => dest.Status, opt => opt.MapFrom(src => Enum.Parse<Status>(src.Status!)));
 
             //-------------------
-            CreateMap<Reviews, ReviewDto>().ReverseMap();
+            CreateMap<Review, ReviewDto>().ReverseMap();
                 
         }
 

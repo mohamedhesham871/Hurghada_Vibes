@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Models
 {
-    public class Reviews
+    public class Review
     {
         public int Id { get; set; }
         public required string FullName { get; set; }

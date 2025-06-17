@@ -51,7 +51,7 @@ namespace Persistence.Data.Migrations
 
                     b.HasIndex("TripId");
 
-                    b.ToTable("Reviews");
+                    b.ToTable("Reviews", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Models.Trips", b =>
@@ -124,7 +124,7 @@ namespace Persistence.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Trips");
+                    b.ToTable("Trips", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Models.Reviews", b =>

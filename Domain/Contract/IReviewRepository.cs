@@ -9,9 +9,9 @@ namespace Domain.Contract
 {
     public  interface IReviewRepository
     {
-        public Task<IEnumerable<Reviews>> GetAllReviewsofTripAsync(int idTrip);
-        public Task<int> AddReviewAsync(Reviews review);
-        public Task<int> UpdateReviewAsync(Reviews review,int id);
+        public Task<IEnumerable<Review>> GetAllReviewsofTripAsync(int idTrip);
+        public Task<int> AddReviewAsync(Review review);
+        public Task<int> UpdateReviewAsync(Review review,int id);
         public bool DeleteReviewAsync(int id);
     }
 }

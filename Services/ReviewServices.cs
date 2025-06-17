@@ -30,7 +30,7 @@ namespace Services
                 throw new ArgumentOutOfRangeException(nameof(review.Rate), "Rating must be between 1 and 5.");
             }
 
-            var Review = mapper.Map<Reviews>(review);
+            var Review = mapper.Map<Review>(review);
 
             
             return  await _repository.AddReviewAsync(Review);
@@ -71,7 +71,7 @@ namespace Services
             {
                 throw new ArgumentNullException(nameof(review), "Review cannot be null.");
             }
-            var Review = mapper.Map<Reviews>(review);
+            var Review = mapper.Map<Review>(review);
             var result = _repository.UpdateReviewAsync(Review, id);
             return result;
         }
