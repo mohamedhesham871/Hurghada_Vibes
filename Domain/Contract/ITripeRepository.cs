@@ -1,4 +1,4 @@
-﻿using Domain.Enum;
+﻿
 using Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -12,8 +12,8 @@ namespace Domain.Contract
     {
         public Task<IEnumerable<Trips>> GetAllTripsAsync();
         public Task<Trips> GetTripByIdAsync(int id);
-        public Task<IEnumerable<Trips>> GetTripsByLocationAsync(Locations location);
-        public Task<IEnumerable<Trips>> GetTripsByStatusAsync(Status status);
+        public Task<IEnumerable<Trips>> GetTripsByLocationAsync(string location);
+        public Task<IEnumerable<Trips>> GetTripsByStatusAsync(string status);
         public Task<IEnumerable<Trips>> GetTripsByPriceRangeAsync(decimal minPrice, decimal maxPrice);
         public Task<IEnumerable<Trips>> GetTripsByDateRangeAsync(DateTime startDate, DateTime endDate);
         public Task<int> AddTripAsync(Trips trip);

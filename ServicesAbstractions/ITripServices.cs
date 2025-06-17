@@ -1,4 +1,5 @@
-﻿using Shared;
+﻿using Domain.Enum;
+using Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +16,8 @@ namespace ServicesAbstractions
         public Task<bool> DeleteTripAsync(int id);
         public Task<IEnumerable<TripsDto>> GetAllTripsAsync();
         public Task<IEnumerable<TripsDto>> GetTripsByDateRangeAsync(DateTime startDate, DateTime endDate);
-        public Task<IEnumerable<TripsDto>> GetTripsByStatusAsync(string status);
-        public Task<IEnumerable<TripsDto>> GetTripsByLocationAsync(string location);
+        public Task<IEnumerable<TripsDto>> GetTripsByStatusAsync(Status status);
+        public Task<IEnumerable<TripsDto>> GetTripsByLocationAsync(Locations location);
         public Task<IEnumerable<TripsDto>> GetTripsByPriceRangeAsync(decimal minPrice, decimal maxPrice);
         
     }

@@ -74,24 +74,19 @@ namespace Persistence.Repository
             return await _context.Set<Trips>().ToListAsync();
         }
         // Get Trips By Location
-        public async Task<IEnumerable<Trips>> GetTripsByLocationAsync(Locations location)
+        public async Task<IEnumerable<Trips>> GetTripsByLocationAsync(string location)
         {
 
+
           var result= await _context.Set<Trips>().Where(t => t.Location == location).ToListAsync().ContinueWith(t => (IEnumerable<Trips>)t.Result);
-            if (location == Locations.none)
-            {
-                throw new ArgumentException("Location cannot be 'none'.", nameof(location));
-            }
+           
             return result!;
         }
         //Get Trips By Status
-        public async Task<IEnumerable<Trips>> GetTripsByStatusAsync(Status status)
+        public async Task<IEnumerable<Trips>> GetTripsByStatusAsync(string status)
         {
             var result = await _context.Set<Trips>().Where(t => t.Status == status).ToListAsync().ContinueWith(t => (IEnumerable<Trips>)t.Result);
-            if (status == Status.none)
-            {
-                throw new ArgumentException("Location cannot be 'none'.", nameof(status));
-            }
+           
             return result;
         }
         // Get Trips By Price Range

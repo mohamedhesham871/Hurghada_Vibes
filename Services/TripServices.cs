@@ -93,32 +93,27 @@ namespace Services
                 .ContinueWith(t => mapper.Map<List<TripsDto>>(t.Result));
         }
         // Get Trips By Status
-        public async Task<IEnumerable<TripsDto>> GetTripsByStatusAsync(string status)
+        public async Task<IEnumerable<TripsDto>> GetTripsByStatusAsync(Status status)
         {
-            // convert status to enum
-            if (string.IsNullOrEmpty(status))
-            {
-                throw new ArgumentException("Status cannot be null or empty.", nameof(status));
-            }
-            if (!Enum.TryParse<Status>(status, true, out var tripStatus))
+            
+            if (!Enum.IsDefined(typeof(Status),status))
             {
                 throw new ArgumentException($"Invalid status value: {status}", nameof(status));
             }
+            var tripStatus = status.ToString();
             return await _repository.GetTripsByStatusAsync(tripStatus)
                 .ContinueWith(t => mapper.Map<List<TripsDto>>(t.Result));
         }
         // Get Trips By Location
-        public async Task<IEnumerable<TripsDto>> GetTripsByLocationAsync(string location)
+        public async Task<IEnumerable<TripsDto>> GetTripsByLocationAsync(Locations location)
         {
-           if (string.IsNullOrEmpty(location))
-            {
-                throw new ArgumentException("Location cannot be null or empty.", nameof(location));
-            }
-            if (!Enum.TryParse<Locations>(location, true, out var tripLocation))
+            if (!Enum.IsDefined(typeof(Locations),location))
             {
                 throw new ArgumentException($"Invalid location value: {location}", nameof(location));
             }
-            return await _repository.GetTripsByLocationAsync(tripLocation)
+            var Location = location.ToString();
+
+            return await _repository.GetTripsByLocationAsync(Location)
                 .ContinueWith(t => mapper.Map<IEnumerable<TripsDto>>(t.Result));
         }
         // Get Trips By Price Range

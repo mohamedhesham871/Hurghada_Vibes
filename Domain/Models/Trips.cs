@@ -1,5 +1,4 @@
-﻿using Domain.Enum;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +11,7 @@ namespace Domain.Models
         public required int Id { get; set; } // 1
         public required string Title { get; set; } // "Hurghada Desert Safari"
         public required string Description { get; set; } // "Experience a thrilling jeep safari through the Hurghada desert."
-        public Locations Location { get; set; }  //Cairo, Alexandria, Hurghada
+        public string Location { get; set; } = null!;  //Cairo, Alexandria, Hurghada
         public decimal Price { get; set; }       // 600.00 EGP
         public DateTime? StartTripe { get; set; } //2025-7-5
         public DateTime? EndTripe { get; set; }  //2025-7-9
@@ -25,7 +24,7 @@ namespace Domain.Models
         public string MeetingPoint { get; set; } = string.Empty; //"Hotel Pla Pla" 
         public List<string> Images { get; set; } = new List<string>();
         public List<string> Tags { get; set; } = new List<string>();
-        public Status? Status { get; set; } // Active, Inactive, SoldOut, Upcoming
+        public string? Status { get; set; } // Active, Inactive, SoldOut, Upcoming
         public List<Review> Reviews { get; set; } = new List<Review>(); // List of reviews for the trip
 
     }

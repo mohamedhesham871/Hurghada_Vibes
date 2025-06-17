@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Domain.Enum;
+using Microsoft.AspNetCore.Mvc;
 using ServicesAbstractions;
 using Shared;
 using System;
@@ -37,14 +38,14 @@ namespace Presentation.controllers
         }
         //4- Get By Location
         [HttpGet("Location")]
-        public async Task<ActionResult<TripsDto>> GetByLocation([FromQuery] string Location)
+        public async Task<ActionResult<TripsDto>> GetByLocation([FromQuery] Locations Location)
         {
             var result =await _services.GetTripsByLocationAsync(Location);
             return Ok(result);
         }
         //5- Get By Status
         [HttpGet("Status")]
-        public async Task<ActionResult<TripsDto>> GetByStatus([FromQuery] string status)
+        public async Task<ActionResult<TripsDto>> GetByStatus([FromQuery] Status status)
         {
             var result = await _services.GetTripsByStatusAsync(status);
             return Ok(result);

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Enum;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace Shared
     {
         public required string Title { get; set; }
         public required string Description { get; set; } 
-        public string Location { get; set; } = string.Empty; 
+        public Locations Location { get; set; }
         public decimal Price { get; set; }      
         public DateTime? StartTripe { get; set; } 
         public DateTime? EndTripe { get; set; }  
@@ -23,6 +24,6 @@ namespace Shared
         public string MeetingPoint { get; set; } = string.Empty;
         public List<string> Images { get; set; } = new List<string>();
         public List<string> Tags { get; set; } = new List<string>();
-        public string? Status { get; set; } = string.Empty; 
+        public Status? Status { get; set; }  
     }
 }
